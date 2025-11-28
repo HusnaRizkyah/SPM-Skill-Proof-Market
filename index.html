@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINIX Skill Proof Market - Temukan Talent, Dapatkan Pengalaman</title>
+
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+    --primary: #4361ee;
+    --secondary: #3a0ca3;
+    --accent: #7209b7;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #7209b7;
+    --talent: #4361ee;
+    --umkm: #7209b7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--dark);
+    background-color: #f5f7ff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-icon::before {
+    content: "V";
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.logo-subtitle {
+    font-size: 0.8rem;
+    color: var(--dark);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.cta-button {
+    background-color: var(--primary);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary);
+    color: white !important;
+}
+
+.hero {
+    padding: 150px 0 100px;
+    background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: white;
+    color: var(--primary);
+}
+
+.btn-umkm {
+    background-color: var(--umkm);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+.btn-umkm:hover {
+    background-color: #5a08a0;
+    transform: translateY(-3px);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.talent-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #e6eeff 0%, #d0ddff 100%);
+}
+
+.talent-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.talent-text {
+    flex: 1;
+}
+
+.talent-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.talent-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.talent-text h2 {
+    font-size: 2.2rem;
+    color: var(--talent);
+    margin-bottom: 20px;
+}
+
+.talent-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.umkm-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+}
+
+.umkm-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.umkm-text {
+    flex: 1;
+}
+
+.umkm-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.umkm-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.umkm-text h2 {
+    font-size: 2.2rem;
+    color: var(--umkm);
+    margin-bottom: 20px;
+}
+
+.umkm-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.benefits-list {
+    list-style: none;
+    margin: 25px 0 30px 0;
+    padding: 0;
+}
+
+.benefits-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.benefits-list i {
+    color: var(--success);
+    margin-right: 12px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.how-it-works {
+    padding: 100px 0;
+    background-color: white;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.steps-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 25px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.step-content {
+    flex: 1;
+    padding: 25px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 5px solid var(--primary);
+}
+
+.step-content h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.step-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.step-connector {
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    bottom: -40px;
+    width: 3px;
+    background: var(--primary);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.step:last-child .step-connector {
+    display: none;
+}
+
+.testimonials {
+    padding: 100px 0;
+    background-color: #f5f7ff;
+}
+
+.testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #555;
+    flex: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 3px solid var(--primary);
+}
+
+.author-avatar.umkm {
+    border: 3px solid var(--umkm);
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
+}
+
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--success);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--success);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #444;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .talent-content,
+    .umkm-content {
+        flex-direction: column;
+    }
+
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .step-number {
+        margin-right: 0;
+        margin-bottom: 15px;
+        align-self: center;
+    }
+
+    .step-content {
+        border-left: none;
+        border-top: 5px solid var(--primary);
+    }
+
+    .step-connector {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .logo-text {
+        text-align: center;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-text">
+                        <h1>VINIX <span>SPM</span></h1>
+                        <div class="logo-subtitle">Skill Proof Market</div>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#talent">Talent</a></li>
+                    <li><a href="#umkm">UMKM</a></li>
+                    <li><a href="#how-it-works">Cara Kerja</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="Login.html" class="cta-button">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Temukan Talent, Dapatkan Pengalaman</h1>
+                <p>VINIX Skill Proof Market menghubungkan talenta digital VINIX dengan UMKM yang membutuhkan solusi digital. Dapatkan talent terverifikasi dengan harga terjangkau dan hasil berkualitas, sekaligus memberikan talent pengalaman nyata, portofolio, dan kesempatan mendapatkan penghasilan tambahan.</p>
+                <div class="hero-buttons">
+                    <a href="register.html" class="btn btn-primary">Daftar Sekarang</a>
+                    <a href="#how-it-works" class="btn btn-secondary">Pelajari Lebih Lanjut</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="talent-section" id="talent">
+        <div class="container">
+            <div class="talent-content">
+                <div class="talent-text">
+                    <h2>Untuk Talent VINIX</h2>
+                    <p>Setelah menyelesaikan pembelajaran di VINIX, kini saatnya membuktikan kemampuan Anda dengan mengerjakan proyek nyata dari UMKM dan startup.</p>
+                    <p>Dapatkan pengalaman berharga, bangun portofolio profesional, dan raih penghasilan tambahan sambil terus mengasah skill digital Anda.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> Akses ke proyek nyata dari UMKM</li>
+                        <li><i class="fas fa-check"></i> Dapatkan penghasilan tambahan</li>
+                        <li><i class="fas fa-check"></i> Bangun portofolio profesional</li>
+                        <li><i class="fas fa-check"></i> Dapatkan badge skill sebagai bukti kompetensi</li>
+                        <li><i class="fas fa-check"></i> Tingkatkan personal branding</li>
+                        <li><i class="fas fa-check"></i> Dapatkan rekomendasi untuk karir</li>
+                    </ul>
+                    
+                    <a href="Login.html" class="btn btn-primary">Mulai Kerjakan Proyek</a>
+                </div>
+                <div class="talent-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Talent VINIX mengerjakan proyek">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="umkm-section" id="umkm">
+        <div class="container">
+            <div class="umkm-content">
+                <div class="umkm-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="UMKM menggunakan solusi digital">
+                </div>
+                <div class="umkm-text">
+                    <h2>Untuk UMKM & Startup</h2>
+                    <p>Butuh solusi digital untuk bisnis Anda? VINIX SPM menyediakan akses ke talenta digital terbaik yang telah melalui pelatihan intensif di VINIX.</p>
+                    <p>Dapatkan website, desain, pemasaran digital, dan solusi lainnya dengan kualitas terjamin dan harga yang terjangkau.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> Akses ke talenta digital VINIX</li>
+                        <li><i class="fas fa-check"></i> Solusi digital dengan harga terjangkau</li>
+                        <li><i class="fas fa-check"></i> Pengerjaan proyek yang cepat dan berkualitas</li>
+                        <li><i class="fas fa-check"></i> Sistem pembayaran yang aman</li>
+                        <li><i class="fas fa-check"></i> Review dan rating untuk memastikan kualitas</li>
+                        <li><i class="fas fa-check"></i> Dukungan dari mentor VINIX</li>
+                    </ul>
+                    
+                    <a href="Login.html" class="btn btn-umkm">Pasang Proyek Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bagaimana Cara Kerjanya?</h2>
+                <p>Alur sederhana untuk memulai kolaborasi di VINIX Skill Proof Market</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Daftar & Lengkapi Profil</h3>
+                        <p>Bergabunglah dengan VINIX SPM dan lengkapi profil Anda dengan skill, pengalaman, dan portfolio. Untuk UMKM, jelaskan kebutuhan bisnis digital Anda.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Temukan Kesempatan</h3>
+                        <p>Talent dapat menjelajahi proyek yang sesuai dengan keahlian. UMKM dapat memposting kebutuhan proyek dengan budget dan timeline yang diinginkan.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Mulai Kolaborasi</h3>
+                        <p>Talent mengajukan penawaran proyek, UMKM memilih talent terbaik. Setelah deal, kolaborasi dimulai dengan komunikasi yang lancar.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Kerjakan & Pantau Proyek</h3>
+                        <p>Talent mengerjakan proyek dengan bimbingan mentor. UMKM dapat memantau progress dan memberikan feedback secara berkala.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Selesaikan & Dapatkan Reward</h3>
+                        <p>Setelah proyek selesai, UMKM melakukan pembayaran dan memberikan review. Talent mendapatkan penghasilan, badge skill, dan portfolio baru.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Mereka?</h2>
+                <p>Testimoni dari talent VINIX dan UMKM yang telah merasakan manfaat Skill Proof Market</p>
+            </div>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Berhasil menyelesaikan 5 proyek desain UI/UX melalui VINIX SPM. Sekarang portofolio saya lebih kuat dan sudah dapat tawaran freelance tetap dari salah satu klien."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="images/Foto profile 1.png" alt="Andi Saputra">
+                        </div>
+                        <div>
+                            <h4>Andi Saputra</h4>
+                            <p>UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Sebagai web developer, VINIX SPM membantu saya mendapatkan proyek nyata yang bisa saya jadikan bukti skill. Penghasilan tambahannya juga sangat membantu."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Sari Rahmawati">
+                        </div>
+                        <div>
+                            <h4>Sari Rahmawati</h4>
+                            <p>Web Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "UMKM saya butuh website toko online dengan budget terbatas. Lewat VINIX SPM, saya dapat bantuan dari peserta yang kompeten dengan harga terjangkau."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar umkm">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Budi Wijaya">
+                        </div>
+                        <div>
+                            <h4>Budi Wijaya</h4>
+                            <p>Pemilik UMKM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Siap mulai berkolaborasi?</h2>
+                <p>Bergabunglah dengan VINIX Skill Proof Market untuk menemukan talent terverifikasi atau membangun portofolio sambil mendapatkan penghasilan tambahan.</p>
+                <a href="register.html" class="btn btn-primary">Daftar Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>VINIX SPM</h3>
+                    <p>Platform yang menghubungkan talenta digital VINIX dengan UMKM yang membutuhkan solusi digital.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#talent">Untuk Talent</a></li>
+                        <li><a href="#umkm">Untuk UMKM</a></li>
+                        <li><a href="#how-it-works">Cara Kerja</a></li>
+                        <li><a href="#testimonials">Testimoni</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Dukungan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Bantuan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@vinix-spm.id</li>
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 VINIX Skill Proof Market. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skill Proof Market</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+ .main-hero {
+            background-color: #fff;
+            min-height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color:transparent;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 40px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .logo-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .login-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .login-link:hover {
+            color: #3498db;
+        }
+
+        .register-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .register-link:hover {
+            color: #3498db;
+        }
+        
+main {
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 26px;
+  color: #222;
+  margin-bottom: 4px;
+  user-select: none;
+}
+.title-underline {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #555;
+  margin: 0 auto 32px auto;
+  border-radius: 3px;
+}
+
+.filters {
+  display: inline-flex;
+  border-radius: 36px;
+  background-color: #E8F0FF;
+  box-shadow: inset 0 0 0 0 transparent;
+  padding: 9px 0;
+  margin-bottom: 48px;
+  user-select: none;
+  overflow: hidden;
+}
+.filters button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: #475467;
+  border-radius: 36px;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.filters button:first-child {
+  margin-left: 4px;
+}
+.filters button:last-child {
+  margin-right: 4px;
+}
+.filters button.active {
+  background-color: #D7D8FF;
+  color: #8185F8;
+  font-weight: 500;
+  pointer-events: none;
+}
+.filters button:hover:not(.active) {
+  color: #5A5EFF;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;  
+}
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  background-color: #F9FBFF;
+  border-radius: 16px;
+  box-shadow: 0px 4px 16px rgb(48 79 213 / 0.12);
+  width: 272px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 0 20px 4px #8F9FFF;
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.card-content {
+  padding: 20px 22px 22px 22px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+}
+.card-content h3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #222;
+  line-height: 1.2;
+}
+.card-content .client {
+  font-weight: 400;
+  font-size: 13px;
+  color: #7C7C7C;
+  margin-bottom: 10px;
+}
+.card-content .time-level {
+  display: flex;
+  gap: 18px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #474747;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.card-content .time-level span {
+  border-right: 1px solid #BDBDBD;
+  padding-right: 12px;
+  white-space: nowrap;
+}
+.card-content .time-level span:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.card-content .highlight {
+  font-weight: 600;
+  font-size: 13px;
+  color: #222;
+  margin-top: 12px;
+  margin-bottom: 18px;
+  line-height: 1.33;
+  white-space: pre-wrap;
+}
+.card-content .highlight b {
+  font-weight: 700;
+}
+.card-content .highlight .emoji {
+  margin-right: 6px;
+  user-select: none;
+}
+
+.card-footer {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.price {
+  background-color: #74D400;
+  border-radius: 24px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 18px;
+  white-space: nowrap;
+  user-select: none;
+}
+.detail-btn {
+  background-color: #3E5AFF;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  user-select: none;
+}
+.detail-btn:hover {
+  background-color: #2D47DA;
+}
+
+.pagination {
+  margin-top: 52px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  user-select: none;
+}
+.pagination button {
+  background-color: #E7EBF0;
+  color: #475467;
+  font-weight: 700;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+.pagination button.active {
+  background-color: #D9D8FF;
+  color: #8185F8;
+  pointer-events: none;
+}
+.pagination button:hover:not(.active) {
+  background-color: #c3c3ff;
+}
+
+footer {
+  background-color: #EBEFF1;
+  text-align: center;
+  padding: 10px 15px;
+  font-weight: 700;
+  color: #2B505C;
+  font-size: 14px;
+  user-select: none;
+}
+
+@media (max-width: 1280px) {
+  .cards {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  nav ul {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cards {
+    gap: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+</head>
+<body>
+    <section class="main-hero">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">SPM</div>
+                <div class="logo-subtitle">SKILL PROOF MARKET</div>
+            </div>
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="Profiletalent.html">Cari Talent</a>
+                    <a href="Exploreproject.html">Cari Proyek</a>
+                    <a href="Dashboardtalent.html">Talent</a>
+                    <a href="Dashboardumkm.html">UMKM</a>
+                </div>
+                <a href="Login.html" class="login-link">Login</a>
+                <a href="register.html" class="register-link">Register</a>
+            </div>
+        </div>
+
+<main class="container" role="main" aria-labelledby="explore-project-title">
+  <h2 class="section-title" id="explore-project-title">Explore Project</h2>
+  <span class="title-underline"></span>
+  <div class="filters" role="tablist" aria-label="Filter Project Categories">
+    <button role="tab" aria-selected="true" tabindex="0" class="active">All</button>
+    <button role="tab" aria-selected="false" tabindex="-1">UI/UX Designer</button>
+    <button role="tab" aria-selected="false" tabindex="-1">Digital Marketing</button>
+    <button role="tab" aria-selected="false" tabindex="-1">Content Writer</button>
+    <button role="tab" aria-selected="false" tabindex="-1">Web Developer</button>
+  </div>
+
+  <div class="cards" tabindex="0" aria-label="Project Listings">
+    <article class="card" role="group" aria-labelledby="card1-title" aria-describedby="card1-desc">
+      <img src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=600&q=80" alt="Desainer menggunakan tablet untuk membuat brand logo" />
+      <div class="card-content">
+        <h3 id="card1-title">Rebranding Instagram Toko Fashion Lokal</h3>
+        <p class="client" id="card1-desc">Klien: Toko Fashion "Gaya Lokal"</p>
+        <div class="time-level">
+          <span>Part-time</span>
+          <span>Beginner</span>
+        </div>
+        <p class="highlight"><span class="emoji">🎯</span><b>Match!</b> Rating 4.7 &amp; <b>Desain Grafis</b> Anda sesuai kebutuhan klien fast-response.</p>
+      </div>
+      <div class="card-footer">
+        <span class="price">Rp 300.000</span>
+        <button class="detail-btn">LIHAT DETAIL &amp; AJUKAN</button>
+      </div>
+    </article>
+
+    <article class="card" role="group" aria-labelledby="card2-title" aria-describedby="card2-desc">
+      <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80" alt="Orang memegang palet warna di depan layar komputer dengan logo" />
+      <div class="card-content">
+        <h3 id="card2-title">Desain Logo dan Packaging Baru</h3>
+        <p class="client" id="card2-desc">Klien: UMKM Kuliner "Keripik Mantap"</p>
+        <div class="time-level">
+          <span>Freelance</span>
+          <span>Intermediate</span>
+        </div>
+        <p class="highlight"><span class="emoji">✅</span><b>Terpilih!</b> Skill <b>Branding</b> Anda solutif untuk budget klien <b>Rp 500K.</b></p>
+      </div>
+      <div class="card-footer">
+        <span class="price">Rp 500.000</span>
+        <button class="detail-btn">LIHAT DETAIL &amp; AJUKAN</button>
+      </div>
+    </article>
+
+    <article class="card" role="group" aria-labelledby="card3-title" aria-describedby="card3-desc">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" alt="Kelompok orang berdiskusi di meja kerja bersama laptop dan kertas" />
+      <div class="card-content">
+        <h3 id="card3-title">Riset Pasar Sederhana &amp; Konten Launching</h3>
+        <p class="client" id="card3-desc">Klien: Startup Kosmetik Lokal</p>
+        <div class="time-level">
+          <span>Part-time</span>
+          <span>Intermediate</span>
+        </div>
+        <p class="highlight"><span class="emoji">🔥</span><b>Spesialis!</b> Skill <b>Proof</b> Anda di <b>Riset</b> dan <b>Konten</b> cocok untuk launching cepat.</p>
+      </div>
+      <div class="card-footer">
+        <span class="price">Rp 450.000</span>
+        <button class="detail-btn">LIHAT DETAIL &amp; AJUKAN</button>
+      </div>
+    </article>
+
+    <article class="card" role="group" aria-labelledby="card4-title" aria-describedby="card4-desc">
+      <img src="images/Exploretalent 1.png" alt="Pria bekerja dengan layar komputer desktop melihat desain visual" />
+      <div class="card-content">
+        <h3 id="card4-title">Visual Branding Mini-Project</h3>
+        <p class="client" id="card4-desc">UMKM "Dapur Bu Mira"</p>
+        <div class="time-level">
+          <span>Part-time</span>
+          <span>Beginner</span>
+        </div>
+        <p class="highlight"><span class="emoji">⭐</span><b>Prioritas!</b> Anda punya reputasi untuk proyek <b>Visual Branding</b> budget <b>Rp 150K.</b></p>
+      </div>
+      <div class="card-footer">
+        <span class="price">Rp 150.000</span>
+        <button class="detail-btn">LIHAT DETAIL &amp; AJUKAN</button>
+      </div>
+    </article>
+  </div>
+
+  <nav class="pagination" role="navigation" aria-label="Pagination Navigation">
+    <button aria-label="Previous page">&lt;</button>
+    <button aria-current="page" class="active" aria-label="Page 1">1</button>
+    <button aria-label="Page 2">2</button>
+    <button aria-label="Page 3">3</button>
+    <button aria-label="Next page">&gt;</button>
+  </nav>
+</main>
+
+<footer>
+  © 2025 Skill Proof Market. All Rights Reserved.
+</footer>
+</body>
+</html>

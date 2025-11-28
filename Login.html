@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    :root{
+      --accent:#0a63ff;
+      --border:#dcdcdc;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Inter, sans-serif;}
+    body{
+      background:#ffffff;
+      width:100vw;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .layout{
+      display:flex;
+      width:100%;
+      height:100%;
+      max-width:1200px; 
+      margin:auto;      
+      padding:40px 40px;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .left{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .left img{
+      width:600px;
+      height:auto;
+    }
+    .right{
+      width:420px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:center;
+      text-align:center;
+    }
+    .title{
+      font-size:28px;
+      font-weight:700;
+      color:#0f4f60;
+    }
+    .subtitle{
+      font-size:14px;
+      color:#6b7280;
+      margin-bottom:10px;
+    }
+    .input-box{
+      border:1px solid #cfcfcf;
+      border-radius:10px;
+      padding:12px 14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:white;
+      width:100%;
+    }
+    .input-box input{
+      border:0;
+      outline:0;
+      font-size:14px;
+      width:100%;
+    }
+    .forgot{
+      text-align:right;
+      color:#6b7280;
+      font-size:13px;
+      margin-top:-5px;
+      cursor:pointer;
+      width:100%;
+    }
+    .buttons{
+      display:flex;
+      gap:14px;
+      margin-top:10px;
+      width:100%;
+      justify-content:center;
+    }
+    .btn {
+      padding:14px 0;
+      border-radius:40px;
+      width:100%;
+      font-weight:600;
+      cursor:pointer;
+      border:1px solid var(--accent);
+      font-size:15px;
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:all .25s ease;
+      background:white; 
+      color:var(--accent); 
+    }
+    .btn-primary:hover,
+    .btn-outline:hover {
+      background:var(--accent);
+      color:white;
+      transform:translateY(-2px);
+    }
+    .btn-outline{
+      background:white;
+      color:var(--accent);
+    }
+    .divider{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#6b7280;
+      font-size:12px;
+      margin-top:5px;
+      width:100%;
+    }
+    .divider::before,
+    .divider::after{
+      content:"";
+      flex:1;
+      height:1px;
+      background:#dcdcdc;
+    }
+    .socials{
+      display:flex;
+      gap:20px;
+      margin-top:10px;
+    }
+    .circle{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid #dcdcdc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layout">
+    <div class="left">
+      <img src="images/Gambar page login dan register.png" />
+    </div>
+
+    <div class="right">
+      <div class="title">Welcome Back!</div>
+      <div class="subtitle">Sign in to your Account!</div>
+
+      <div class="input-box">
+        <input type="email" placeholder="Email Address" id="email" />
+      </div>
+
+      <div class="input-box">
+        <input id="password" type="password" placeholder="Password" />
+        <span class="toggle-eye" onclick="togglePassword()">
+          <img id="eyeIcon" 
+               src="https://cdn-icons-png.flaticon.com/512/709/709612.png" 
+               width="20">
+        </span>
+      </div>
+
+      <div class="forgot">Forgot Password?</div>
+
+      <div class="buttons">
+        <button class="btn btn-primary" onclick="goRegister()">SIGN UP</button>
+        <button class="btn btn-outline" onclick="login()">SIGN IN</button>
+      </div>
+
+      <div class="divider">OR LOGIN WITH</div>
+
+      <div class="socials">
+        <div class="circle"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" width="22" /></div>
+        <div class="circle"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" width="22" /></div>
+        <div class="circle"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="22" /></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword(){
+      const pass = document.getElementById("password");
+      const icon = document.getElementById("eyeIcon");
+
+      if(pass.type === "password"){
+        pass.type = "text";
+        icon.src = "https://cdn-icons-png.flaticon.com/512/565/565655.png";
+      } else {
+        pass.type = "password";
+        icon.src = "https://cdn-icons-png.flaticon.com/512/709/709612.png";
+      }
+    }
+
+    function goRegister(){
+      window.location.href = "register.html";
+    }
+
+    function login(){
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if(email === "" || password === ""){
+        Swal.fire({
+          icon: "warning",
+          title: "Form belum lengkap!",
+          text: "Email dan password wajib diisi 💛",
+          confirmButtonColor: "#0a63ff"
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: "success",
+        title: "Berhasil Login!",
+        text: "Selamat datang kembali ✨",
+        showConfirmButton: false,
+        timer: 1400
+      }).then(()=>{
+        window.location.href = "home.html"; 
+      });
+    }
+  </script>
+
+</body>
+</html>

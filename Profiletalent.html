@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profil UI/UX Designer</title>
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eaf2f8;
+    color: #222;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  background-color: #3A91F5;
+  color: #eaf2f8;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+  .main-hero {
+            background-color: #fff;
+            min-height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color:transparent;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 40px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .logo-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .login-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .login-link:hover {
+            color: #3498db;
+        }
+
+        .register-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .register-link:hover {
+            color: #3498db;
+        }
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    gap: 40px;
+  }
+
+  .hero .content h1 {
+    margin-bottom: 5px;
+    font-size: 26px;
+    font-weight: 700;
+  }
+  .hero .content h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+
+  .skills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .skills button {
+    padding: 8px 18px;
+    border: 1px solid #222;
+    border-radius: 10px;
+    background: transparent;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .stars svg {
+    width: 20px;
+    height: 20px;
+    fill: #f1cb2f;
+  }
+
+  .hire-btn {
+    background-color: #4567ff;
+    color: white;
+    font-weight: 700;
+    padding: 10px 28px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hero-img {
+    position: relative;
+    width: 380px;
+  }
+  .hero-img img {
+    width: 100%;
+    border-radius: 15px;
+    z-index: 10;
+    position: relative;
+  }
+
+  .shape-blue-light {
+    position: absolute;
+    top: -50px;
+    right: -40px;
+    width: 200px;
+    height: 170px;
+    background: #b3d9ff;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .shape-blue-dark {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    width: 140px;
+    height: 150px;
+    background: #a0c2e8;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px 60px;
+    gap: 40px;
+  }
+
+  .main-left {
+    flex: 1 1 70%;
+  }
+
+  .about-me h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .about-me p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .portfolio-section h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .portfolio {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+  }
+  .portfolio-card {
+    width: 170px;
+    background: white;
+    border-radius: 16px;
+    flex: 0 0 auto;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  }
+  .portfolio-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+  }
+  .portfolio-info {
+    padding: 10px;
+    text-align: center;
+  }
+  .portfolio-info .title {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .portfolio-info .subtitle {
+    font-size: 11px;
+    color: #666;
+  }
+
+  .redesign { background: #d4cdbd; }
+  .branding { background: #3a260f; color: white; }
+  .website { background: #812e05; color: white; }
+  .socialmedia { background: #e6e1dd; }
+
+  aside {
+    flex: 1 1 28%;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    font-size: 14px;
+  }
+
+  aside .info-label {
+    font-weight: 700;
+    margin-top: 12px;
+  }
+
+  aside .hire-btn-aside {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border-radius: 20px;
+    background: #4567ff;
+    color: white;
+    font-weight: 700;
+    border: none;
+  }
+
+  footer {
+    background-color: #e1e8eb;
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #4a747c;
+  }
+
+</style>
+</head>
+
+<body>
+
+ <section class="main-hero">
+  <div class="header">
+      <div class="logo-container">
+          <div class="logo">SPM</div>
+          <div class="logo-subtitle">SKILL PROOF MARKET</div>
+      </div>
+      <div class="nav-container">
+          <div class="nav-links">
+              <a href="Profiletalent.html">Cari Talent</a>
+              <a href="Exploreproject.html">Cari Proyek</a>
+              <a href="Dashboardtalent.html">Talent</a>
+              <a href="Dashboardumkm.html">UMKM</a>
+          </div>
+          <a href="Login.html" class="login-link">Login</a>
+          <a href="register.html" class="register-link">Register</a>
+      </div>
+  </div>
+
+<section class="hero">
+  <div class="content">
+    <h1>Hi! Adeline Hazel</h1>
+    <h2>UI/UX Designer, VINIX Batch 3</h2>
+
+    <div class="skills">
+      <button>UI Design</button>
+      <button>HTML/CSS</button>
+      <button>Figma</button>
+      <button>Branding</button>
+    </div>
+
+    <div class="rating">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+
+      <div>4.8</div>
+      <div>(32 Review)</div>
+    </div>
+
+    <button class="hire-btn">Hire Talent</button>
+  </div>
+
+  <div class="hero-img">
+    <div class="shape-blue-light"></div>
+    <div class="shape-blue-dark"></div>
+    <img src="images/Foto Profile.png">
+  </div>
+</section>
+
+<main>
+  <div class="main-left">
+    <section class="about-me">
+      <h3>Tentang Saya</h3>
+      <p>Saya adalah seorang UI/UX Designer dengan pengalaman dalam membuat tampilan aplikasi maupun website yang user–friendly, modern, dan efektif. Saya terbiasa melakukan research, membuat wireframe, prototyping, hingga melakukan usability testing untuk memastikan hasil akhir sesuai kebutuhan pengguna.</p>
+      <p>Saya memahami tools seperti Figma, Adobe XD, dan Canva, serta mampu berkolaborasi dengan tim developer untuk memastikan desain dapat diimplementasikan dengan baik.</p>
+    </section>
+
+    <section class="portfolio-section">
+      <h3>Portofolio</h3>
+
+      <div class="portfolio">
+
+        <div class="portfolio-card redesign">
+          <img src="images/portofolio 1.png">
+          <div class="portfolio-info">
+            <div class="title">Redesign Landing Page UMKM Roti</div>
+            <div class="subtitle">UI/UX</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card branding">
+          <img src="images/portofolio 2.png">
+          <div class="portfolio-info">
+            <div class="title">Branding Coffee Shop</div>
+            <div class="subtitle">Branding</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card website">
+          <img src="images/portofolio 3.png">
+          <div class="portfolio-info">
+            <div class="title">Website Portofolio Personal</div>
+            <div class="subtitle">UI/UX</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card socialmedia">
+          <img src="images/portofolio 4.png">
+          <div class="portfolio-info">
+            <div class="title">Social Media Feed Fashion Shop</div>
+            <div class="subtitle">UI/UX</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <aside>
+    <div>
+      <strong>Lokasi</strong>
+      <p>Jakarta</p>
+    </div>
+
+    <div class="info-label">Harga Mulai</div>
+    Rp. 150.000
+
+    <div class="info-label">Status</div>
+    Available Now
+
+    <div class="info-label">Project Selesai</div>
+    12
+
+    <div class="info-label">Ulasan</div>
+    <strong>⭐⭐⭐⭐⭐ 4.8</strong>
+    <p>Kerjanya cepat dan rapih, recommended!</p>
+
+    <button class="hire-btn-aside">Hire Talent Sekarang</button>
+  </aside>
+
+</main>
+
+<footer>
+  © 2025 Skill Proof Market. All Rights Reserved.
+</footer>
+
+</body>
+</html>

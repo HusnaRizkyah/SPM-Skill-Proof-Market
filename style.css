@@ -1,0 +1,251 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+  
+  .logo-section {
+    flex-grow: 1;              
+    display: flex;
+    align-items: center;
+}
+
+.logo-section img {
+    width: 100px;               
+    height: auto;
+    object-fit: contain;
+}
+
+  .nav-links a {
+    margin-left: 1.5rem;
+    color: #2B6777;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    text-align: center;
+    gap: 2rem; 
+  }
+  
+  @media (min-width: 768px) {
+    .hero {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+      gap: 3rem; 
+    }
+  }
+  
+  .hero-text {
+    max-width: 480px;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2B6777;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text p {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-text button {
+    background-color: #2B6777;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+  
+  .hero-text button:hover {
+    background-color: #C8D8E4;
+  }
+  
+  .hero-img img {
+    width: 260px;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-img img {
+      width: 360px;
+    }
+  }
+  
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;       
+  padding: 2rem 3rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #C8D8E4;
+  border: 1px solid #C8D8E4;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  width: 25rem;
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+}
+
+.card-text {
+  flex: 1;
+  text-align: left;
+}
+
+.card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.3rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000; 
+  margin-bottom: 0.4rem;
+}
+
+.card p {
+  color: #000000;
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.setor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 0rem;       
+  padding: 3rem;
+  flex-wrap: wrap;
+}
+
+.setor-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F2F2F2;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 2rem 3rem;
+  width: 35rem;
+  gap: 1.5rem;
+  flex-direction: row; 
+}
+
+.setor-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  order: 0; 
+}
+
+.setor-card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;  
+}
+
+.setor-card h3 {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.setor-card button {
+  background-color: #2B6777;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.setor-card button:hover {
+  background-color: #C8D8E4;
+}
+
+.setor-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .card,
+  .setor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-text,
+  .setor-card-text {
+    text-align: center;
+  }
+
+  .card img,
+  .setor-card img {
+    margin-top: 1rem;
+  }
+}
+
+  .footer {
+    background-color: #C8D8E4;
+    color: 2B6777;
+    margin-top: 5rem;
+    padding: 1.5rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
+  

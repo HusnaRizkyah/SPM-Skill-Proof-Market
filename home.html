@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPM - Skill Proof Market</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .main-hero {
+            background-color: #fff;
+            min-height: 70vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color:transparent;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 40px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .logo-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: normal;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        .login-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .login-link:hover {
+            color: #3498db;
+        }
+
+        .register-link {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+        }
+        
+        .register-link:hover {
+            color: #3498db;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            padding: 15px 20px;
+            flex-grow: 1;
+            border: 1px solid #ddd;
+            border-radius: 8px 0 0 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            border-color: #0114C0;
+        }
+        
+        .search-box button {
+            background-color: #0114C0;
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: #2980b9;
+        }
+        
+        .categories {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .category {
+            background-color: #9BBBD4;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .category:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            position: fixed;
+            left: 0px;
+        }
+        
+        .talent-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .talents-section {
+            padding: 20px 40px 60px;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            color: #2c3e50;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .carousel-nav.left {
+            left: 0;
+        }
+        
+        .carousel-nav.right {
+            right: 0;
+        }
+        
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 25px;
+        }
+        
+        .talent-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 280px;
+            flex-shrink: 0;
+        }
+        
+        .talent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .rating {
+            background-color: #3498db;
+            color: white;
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .talent-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .talent-role {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .talent-exp {
+            font-size: 14px;
+            color: #95a5a6;
+            margin-bottom: 20px;
+        }
+        
+        .talent-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .view-profile {
+            color: #0114C0;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-block;
+            padding: 8px 0;
+        }
+        
+        .view-profile:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        .carousel-btn {
+            background-color: #0114C0;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.1);
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            
+            .hero-background {
+                position: relative;
+                width: 100%;
+                height: 250px;
+                margin-top: 20px;
+                transform: none;
+                top: auto;
+            }
+            
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .search-box {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .categories {
+                justify-content: center;
+            }
+            
+            .talent-card {
+                min-width: 250px;
+            }
+            
+            .carousel-nav {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .hero-image {
+                object-position: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-track {
+                gap: 15px;
+            }
+            
+            .talent-card {
+                min-width: 220px;
+            }
+            
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .nav-container {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .logo-container {
+                margin-right: 0;
+            }
+            
+            .hero-content {
+                padding: 20px 20px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .main-hero {
+                min-height: auto;
+            }
+            
+            .talents-section {
+                padding: 15px 20px 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="main-hero">
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">SPM</div>
+                <div class="logo-subtitle">SKILL PROOF MARKET</div>
+            </div>
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="Profiletalent.html">Cari Talent</a>
+                    <a href="Exploreproject.html">Cari Proyek</a>
+                    <a href="Dashboardtalent.html">Talent</a>
+                    <a href="Dashboardumkm.html">UMKM</a>
+                </div>
+                <a href="Login.html" class="login-link">Login</a>
+                <a href="register.html" class="register-link">Register</a>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Temukan Talent Terbaik</h1>
+                <h1>Sesuai Kebutuhanmu!</h1>
+                <p>Skill yang terverifikasi, harga terjangkau, hasil berkualitas.</p>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Search">
+                    <button>Search</button>
+                </div>
+                
+                <div class="categories">
+                    <div class="category">Design</div>
+                    <div class="category">Programming</div>
+                    <div class="category">Marketing</div>
+                    <div class="category">Business</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-background">
+            <img src="images/Gambar explore talent.png" alt="Talent Marketplace" class="hero-image">
+        </div>
+    </section>
+
+    <section class="talents-section">
+        <div class="section-header">
+            <div class="carousel-nav left">
+                <button class="carousel-btn" id="prevBtn">←</button>
+            </div>
+            
+            <h2 class="section-title">Talent Terpopuler</h2>
+            
+            <div class="carousel-nav right">
+                <button class="carousel-btn" id="nextBtn">→</button>
+            </div>
+        </div>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="talent-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="John Doe" class="talent-image">
+                    <div class="rating">4,9</div>
+                    <div class="talent-name">John Doe</div>
+                    <div class="talent-role">UI/UX Designer</div>
+                    <div class="talent-exp">5 years • AdobeXD</div>
+                    <div class="talent-price">Rp150.000</div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+                
+                <div class="talent-card">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Daniel Smith" class="talent-image">
+                    <div class="rating">4,8</div>
+                    <div class="talent-name">Daniel Smith</div>
+                    <div class="talent-role">Digital Marketing</div>
+                    <div class="talent-exp">2 years • SEO</div>
+                    <div class="talent-price">Rp200.000</div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+                
+                <div class="talent-card">
+                    <img src="images/young-happy-business-woman-working-600nw-2189325893.webp" alt="Kate Bell" class="talent-image">
+                    <div class="rating">4,7</div>
+                    <div class="talent-name">Kate Bell</div>
+                    <div class="talent-role">Content Writer</div>
+                    <div class="talent-exp">3 years • WordPress</div>
+                    <div class="talent-price">Rp180.000</div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+                
+                <div class="talent-card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Aleksander" class="talent-image">
+                    <div class="rating">4,9</div>
+                    <div class="talent-name">Aleksander</div>
+                    <div class="talent-role">Web Developer</div>
+                    <div class="talent-exp">4 years • React.js</div>
+                    <div class="talent-price">Rp250.000</div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+                
+                <div class="talent-card">
+                    <img src="https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Sarah Johnson" class="talent-image">
+                    <div class="rating">4,8</div>
+                    <div class="talent-name">Sarah Johnson</div>
+                    <div class="talent-role">Graphic Designer</div>
+                    <div class="talent-exp">4 years • Illustrator</div>
+                    <div class="talent-price">Rp170.000</div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+                
+                <div class="talent-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Michael Brown" class="talent-image">
+                    <div class="rating">4,9</div>
+                    <div class="talent-name">Michael Brown</div>
+                    <div class="talent-role">Data Analyst</div>
+                    <div class="talent-exp">3 years • Python</div>
+                    <div class="talent-price">Rp220.000</div>
+                    <a href="#" class="view-profile">View Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Skill Proof Market. All Rights Reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            const cards = document.querySelectorAll('.talent-card');
+            const cardWidth = cards[0].offsetWidth + 25; 
+            const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+            const totalCards = cards.length;
+            const totalSlides = Math.ceil(totalCards / visibleCards);
+            
+            let currentSlide = 0;
+            
+            function updateCarousel() {
+                const translateX = -currentSlide * visibleCards * cardWidth;
+                track.style.transform = `translateX(${translateX}px)`;
+            }
+            
+            function nextSlide() {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateCarousel();
+                }
+            }
+            
+            function prevSlide() {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateCarousel();
+                }
+            }
+            
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            window.addEventListener('resize', function() {
+                const newVisibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+                if (newVisibleCards !== visibleCards) {
+                    location.reload();
+                }
+            });
+            
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
